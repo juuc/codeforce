@@ -28,15 +28,3 @@ for rowsize in range(5,row+1):
         print(rowsize,colsize)
         ans = min(ans,find(rowsize,colsize))
 print(ans)
-
-from matplotlib import pyplot as plt
-freqs = [0,4,2,3,8,24,11,14,5,6]
-Xisquare = [(idx*10)**2 * i for idx, i in enumerate(freqs)]; print(sum(Xisquare))
-Xi = [(idx*10) * i for idx, i in enumerate(freqs)]; print((sum(Xi)/77))
-print(((sum(Xisquare) - sum(Xi)**2/77)/76)**0.5)
-xaxis = [0,10,20,30,40,50,60,70,80,90]
-
-from scipy.stats import norm
-rv = norm(loc = sum(Xi)/77, scale = ((sum(Xisquare) - sum(Xi)**2/77)/76)**0.5) #평균 0이고 표준편차 1인 정규분포 객체 만들기
-(rv.cdf(95) - rv.cdf(85))
-plt.plot(xaxis[1:],Xi[1:])
